@@ -77,21 +77,37 @@ System.exit(0);
 
 //3. insert new element
 public void insert(int size, int arr[]){
+//code output is 0 but need to use new element input to make insert display
+/////////
 int num1=0, i;  
-int arr1[] = new int[arr.length+size+1];   
+int arr1[] = new int[size+1];    
 System.out.println(); 
-print(size, arr); 
+System.out.print("Please repeat and enter the "+size+" elements: "); 
+for( i = 0 ; i < size; i++){
+arr1[i] = input.nextInt(); 
+}
 System.out.println(); 
 System.out.print("The above mentioned array, please choose a number to insert: "); 
 int num = input.nextInt(); 
 System.out.print("Choose an index number to insert: "); 
 int pos = input.nextInt(); 
-  arr1[size] = pos; 
-  
-  for(i = 0; i <size; i++){
-  System.out.print(arr1[i]+" "); 
-  }
-  System.out.print(arr[size]); 
+for( i = size-1; i >=(pos-1); i--){
+   arr1[i+1] = arr1[i]; 
+}
+arr1[pos-1]=num; 
+for(i = 0; i <=size; i++){
+System.out.print(arr1[i]+" "); 
+}
+System.out.println();
+System.out.print("Do you wish to continue? y or n: "); 
+String ch = input.next();
+if(ch.equals("y")){
+menu(size, arr); 
+}
+else if(ch.equals("n")){
+System.exit(0); 
+}
+
 }
 
 //4. delete an element 
