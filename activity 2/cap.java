@@ -60,18 +60,6 @@ System.out.print("The "+size+" elements of the array are: ");
 for(int i = 0; i < size; i++){
 System.out.print(arr[i]+" "); 
 }
-
-System.out.println(); 
-System.out.println(); 
-System.out.print("Do you wish to continue? y or n: "); 
-String ch = input.next(); 
-
-if(ch.equals("y")){
-menu(size, arr); 
-}
-else if(ch.equals("n")){
-System.exit(0); 
-}
 }
 
 
@@ -98,16 +86,6 @@ arr1[pos-1]=num;
 for(i = 0; i <=size; i++){
 System.out.print(arr1[i]+" "); 
 }
-System.out.println();
-System.out.print("Do you wish to continue? y or n: "); 
-String ch = input.next();
-if(ch.equals("y")){
-menu(size, arr); 
-}
-else if(ch.equals("n")){
-System.exit(0); 
-}
-
 }
 
 //4. delete an element 
@@ -136,17 +114,6 @@ for(int k = 0; k < arr.length-1; k++){
 System.out.print(" "+arr[k]); 
 
 }
-System.out.println(); 
-System.out.println(); 
-System.out.print("Do you wish to continue? y or n: "); 
-String ch = input.next(); 
-
-if(ch.equals("y")){
-menu(size, arr); 
-}
-else if(ch.equals("n")){
-System.exit(0); 
-}
 }
 
 // 5. search an element 
@@ -163,42 +130,18 @@ System.out.println();
 
 for(int i = 0; i < arr.length; i++){
 if(arr[i]==search){ 
-System.out.print("Element "+search+" is located at "+(i+1)+" ");
-System.out.println(); 
-System.out.println(); 
-System.out.println(); 
-System.out.print("Do you wish to continue? y or n: "); 
-String ch = input.next(); 
-
-if(ch.equals("y")){
-menu(size, arr); 
-}
-else if(ch.equals("n")){
-System.exit(0); 
-}
-
+System.out.print("Element "+search+" is located at no. "+(i+1)+" index");
 return;  
 }
 }
 System.out.print("Element not found!"); 
 
-System.out.println(); 
-System.out.println(); 
-System.out.print("Do you wish to continue? y or n: "); 
-String ch = input.next(); 
-
-if(ch.equals("y")){
-menu(size, arr); 
-}
-else if(ch.equals("n")){
-System.exit(0); 
-}
 }
 
 //6.Sort array elements 
 public void sort(int size, int arr[]){
 int temp = 0; 
-for(int i = 0; i < size; i++){
+/*for(int i = 0; i < size; i++){
 for(int j = i+1; j < size; j++){
 if(arr[i]>arr[j]){
 temp = arr[i];
@@ -213,18 +156,22 @@ for(int j = 0; j < size-1;j++){
 System.out.print(arr[j]+" ");
 }
 System.out.print(arr[size-1]); 
+*/
+//bubble sort 
+ for(int i =0; i < arr.length-1; i++){
+   for(int j = 0; j < arr.length-1; j++){
+   if(arr[j] > arr[j+1]){
+   temp = arr[j]; 
+   arr[j]= arr[j+1]; 
+   arr[j+1] = temp; 
+   }
+   }
+   }
+   
+   for(int k = 0; k < size; k++){
+   System.out.print(arr[k]+" "); 
+   }
 
-System.out.println(); 
-System.out.println(); 
-System.out.print("Do you wish to continue? y or n: "); 
-String ch = input.next(); 
-
-if(ch.equals("y")){
-menu(size, arr); 
-}
-else if(ch.equals("n")){
-System.exit(0); 
-}
 }
 
 }// end of file
